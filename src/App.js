@@ -35,7 +35,7 @@ function App() {
       <Router>
         <Suspense fallback={<Loader />}>
           <Switch>
-            <Route path="/publisher/:ID" exact component={Publisher} />
+            <Route path="/publisher/:PUBLISHER" component={Publisher} />
             <Route path="/" exact component={Home} />
           </Switch>
         </Suspense>

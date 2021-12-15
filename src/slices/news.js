@@ -19,16 +19,13 @@ const newsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchnewsData.pending, (state, action) => {
-        console.log("HIIII pending");
         state.loading = true;
       })
       .addCase(fetchnewsData.fulfilled, (state, action) => {
-        console.log("HIIII fulfilled", action.payload);
         state.loading = false;
         state.AllNews = action.payload;
       })
       .addCase(fetchnewsData.rejected, (state, action) => {
-        console.log("HIIII fulfilled", action.payload);
         state.loading = false;
         state.error = action.payload;
       });

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
 
+import NewsComp from "components/NewsComp";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { convertTimestampToDate } from "helpers";
 
 const Container = styled.div``;
 
@@ -55,7 +55,7 @@ const Home = () => {
   if (loading) {
     return <Container>loading...</Container>;
   }
-  console.log("AllNews", AllNews, loading, error);
+
   return (
     <Container>
       <Section>
@@ -70,21 +70,6 @@ const Home = () => {
           : null}
       </Section>
     </Container>
-  );
-};
-
-const NewsComp = ({ news, handleNavigation }) => {
-  return (
-    <NewsDiv>
-      <div> {news.HOSTNAME} </div>
-      <div>
-        <button onClick={() => handleNavigation(news.ID)}>
-          {news.PUBLISHER}
-        </button>
-      </div>
-
-      <div> {convertTimestampToDate(news.TIMESTAMP)} </div>
-    </NewsDiv>
   );
 };
 

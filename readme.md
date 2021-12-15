@@ -2,4 +2,4 @@
 
 2. used recharts npm module for Drawing charts
 
-3. site deployed in https://cocky-roentgen-c56437.netlify.app/
+3. site deployed in https://romantic-saha-94fea1.netlify.app/
