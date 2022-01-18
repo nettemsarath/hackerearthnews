@@ -24,6 +24,7 @@ const Loader = () => {
 };
 
 function App() {
+  console.log("GITHUB PAGES APPP");
   return (
     <Layout>
       <Search />
