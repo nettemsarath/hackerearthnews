@@ -5,46 +5,16 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+
 jobs:
   build:
-    name: Build React app
+    name: build-react-app
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the code from master
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Install NodeJS
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: 13.x
-
-      - name: Install NPM packages
-          run: npm ci
-
-      - name: Build project
-          run: npm run build
-
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
-        with:
-          name: production-files
-          path: ./build
-
-  deploy:
-    name: Deploy React App
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-
-    steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./build
-
-      - name: Deploy to github pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish: ./build
+      - run: npm ci
+      - run: npm run build

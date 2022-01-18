@@ -1,4 +1,4 @@
-name: air-mate deployement to github pages
+name: Build & Deploy
 
 on:
   push:
