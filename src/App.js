@@ -24,19 +24,14 @@ const Loader = () => {
 };
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchnewsData());
-  }, [dispatch]);
   return (
     <Layout>
       <Search />
       <Router>
         <Suspense fallback={<Loader />}>
           <Switch>
-            <Route path="/publisher/:PUBLISHER" component={Publisher} />
-            <Route path="/" exact component={Home} />
+            <Route path='/publisher/:PUBLISHER' component={Publisher} />
+            <Route path='/' exact component={Home} />
           </Switch>
         </Suspense>
       </Router>
