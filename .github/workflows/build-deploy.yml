@@ -1,4 +1,4 @@
-name: Build & deploy the React app
+name: Build & deploy frontEnd App
 
 on:
   push:
