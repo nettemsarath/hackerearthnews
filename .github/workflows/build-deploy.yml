@@ -24,7 +24,7 @@ jobs:
 
       - run: echo "run npm ci command"
       - name: Install NPM packages
-        run: yarn
+        run: yarn install
 
       - name: Build project
         run: yarn build
