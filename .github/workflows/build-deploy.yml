@@ -15,10 +15,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Packages
+      - name: Install react-scripts
         run: npm install --save react react-dom react-scripts
+      - name: Install Dependencies
         run: npm install
       - name: Build page
         run: npm run build
-
-        
