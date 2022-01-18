@@ -1,23 +1,28 @@
-name: Deployment
+name: air-mate deployement to github pages
+
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+  pull_request:
+    branches: [master]
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [12.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install react-scripts
-        run: npm install --save react react-dom react-scripts
-      - name: Install Dependencies
-        run: npm install
-      - name: Build page
-        run: npm run build
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
+        env:
+          CI: false
