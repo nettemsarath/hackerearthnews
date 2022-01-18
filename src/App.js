@@ -28,7 +28,7 @@ function App() {
   return (
     <Layout>
       <Search />
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Suspense fallback={<Loader />}>
           <Switch>
             <Route path='/publisher/:PUBLISHER' component={Publisher} />
