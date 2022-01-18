@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Packages
+        run: npm install --save react react-dom react-scripts
         run: npm install
       - name: Build page
         run: npm run build
