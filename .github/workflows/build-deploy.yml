@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: 13.x
 
+      - run: echo "run npm ci command"
       - name: Install NPM packages
         run: npm ci
 
